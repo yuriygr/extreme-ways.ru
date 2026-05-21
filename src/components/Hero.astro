@@ -6,7 +6,7 @@
   <div class="hero__wrapper">
     <div class="hero__text">
       <div id="first">extreme ways for</div>
-      <div id="second" set:html={`<span class="dud">_</span>`}></div>
+      <div id="second" set:html={`<span class="dud">_____</span>`}></div>
     </div>
   </div>
 </div>
@@ -45,7 +45,7 @@
 </script>
   
 
-<style lang="scss">
+<style is:global lang="scss">
 .hero {
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@
       &#second {
         color: var(--x-color--primary);
   
-        :global(.dud) {
+        .dud {
           color: var(--x-color--second);
         }
       }

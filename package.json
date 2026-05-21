@@ -1,0 +1,24 @@
+{
+  "name": "extreme-ways.ru",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/partytown": "^2.1.2",
+    "@astrojs/vue": "^4.5.0",
+    "@south-paw/typeface-minecraft": "^1.0.0",
+    "astro": "^4.16.18",
+    "axios": "^1.7.2",
+    "sass": "^1.70.0",
+    "vue": "^3.4.34"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1"
+  }
+}

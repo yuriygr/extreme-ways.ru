@@ -1,0 +1,52 @@
+---
+import Button from '@components/mc/Button.vue';
+
+interface Props {
+	address?: string;
+}
+
+const { address = 'localhost:45545' } = Astro.props;
+---
+
+<div class="card-address">
+  <div class="card-address__field" id="code" set:text={address} />
+  <Button mode="green" size="l" id="copy">Копировать</Button>
+</div>
+
+<script>
+	const code: HTMLElement | null = document.getElementById('code');
+	const copy_button = document.getElementById('copy');
+	copy_button?.addEventListener('click', () => {
+    if (code)
+		  navigator.clipboard.writeText(code.innerText);
+	});
+</script>
+
+<style lang="scss">
+.card-address {
+  display: flex;
+  justify-items: center;
+
+  * + * {
+    margin-left: .75rem;
+  }
+
+  &__field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    background: #373737;
+    border: 2px solid;
+    border-color: #000000 #8b8b8b #8b8b8b #000000;
+    padding: .75rem;
+
+    color: #fff;
+    text-shadow: 2px 2px #000A;
+    font-size: 1.35rem;
+    line-height: calc(1.2 * 1em);
+    height: 42px;
+  }
+}
+</style>

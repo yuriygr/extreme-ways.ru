@@ -1,0 +1,78 @@
+---
+
+---
+
+<div class="hero">
+  <div class="hero__wrapper">
+    <div class="hero__text">
+      <div id="first">extreme ways for</div>
+      <div id="second"></div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  import { Scramble } from '@_utils/scramble.js';
+
+  const second = document.getElementById("second") as HTMLElement;
+  const scramble = new Scramble(second);
+
+  const phrases: string[] = [
+    "big ideas",
+    "bold products",
+    "real software",
+    "ambitious startups",
+    "serious business",
+    "those who build",
+    "what matters",
+    "things that work",
+    "the long run",
+    "makers",
+    "builders",
+    "the relentless",
+    "what's next",
+  ];
+  const startIdx = Math.floor(Math.random() * phrases.length);
+  let current = startIdx;
+
+  scramble.setText(phrases[startIdx]);
+
+  setInterval(async () => {
+    current = (current + 1) % phrases.length;
+    await scramble.setText(phrases[current]);
+  }, 2800);
+</script>
+  
+
+<style lang="scss">
+.hero {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 99px);
+
+  &__wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+    &__text > div {
+      font-size: 4rem;
+      user-select: none;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .084em;
+
+      &#second {
+        color: var(--x-color--primary);
+  
+        :global(.dud) {
+          color: var(--x-color--second);
+        }
+      }
+    }
+}
+</style>
